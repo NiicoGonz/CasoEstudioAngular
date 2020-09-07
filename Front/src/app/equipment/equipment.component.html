@@ -1,0 +1,48 @@
+<app-nav></app-nav>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="modal-content">
+                <div class="col-12 col-sm-12 col-md-8 mx-auto ">
+                    <div class=" mt-4 col-12 user-img">
+                        <img [src]="img_circle" th:src="@{/img/register-mobile.png}"/>
+                    </div>
+                    <div class="border border-left-9   p-5 shadow-sm rounded-right" style="background: slategrey;">
+                        <form [formGroup] = "form" (ngSubmit)="onSubmit()">
+                            <h2 class="text-center mb-4">REGISTER MOBILE EQUIPMENT</h2>
+                            <div class="dropdown-divider"></div>
+                            <div class="form-group">
+                                <label for="mobileline">Line number </label>
+                                <input formControlName="lineNumber" type="number" class="form-control" id="mobileline" placeholder="(+00) 000-000-0000">
+                            </div>
+                            <div class="form-group">
+                                <label for="serial">Serial </label>
+                                <input formControlName="serial" type="text" class="form-control" id="serial" placeholder="Enter equipment brand">
+                            </div>
+                            <div class="form-group">
+                                <label for="imei">Imei</label>
+                                <input formControlName="imei" type="text" class="form-control" id="imeitrademark">                            
+                            </div>
+                            <div class="form-group">
+                                <label for="trademark">Trademark</label>
+                                <input formControlName="trademark" type="text" class="form-control" id="trademark">                            
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="state">State</label>
+                                <select formControlName="state" id="state" class="form-control">
+                                    <option [ngValue]="item.value" *ngFor="let item of estados">{{item.description}}</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block mt-3" style="margin-left: 110px;">Registration</button>
+                        </form>
+                    </div>
+                    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                        Failed to register.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>

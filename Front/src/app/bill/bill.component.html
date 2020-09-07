@@ -1,0 +1,60 @@
+<app-nav></app-nav>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="modal-content">
+                <div class="col-12 col-sm-12 col-md-8 mx-auto ">
+                    <div class=" mt-4 col-12 user-img">
+                        <img [src]="img_circle" th:src="@{/img/register-fac.png}" />
+                    </div>
+                    <div class="border border-left-9   p-5 shadow-sm rounded-right" style="background: slategrey;">
+                        <h2>Facturas</h2><br>
+                        <div class="dropdown-divider"></div>
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <label for="mobileline" style="color: black;">Consult Bill</label>
+                                <input formControlName="mobileline" type="number" class="form-control" id="mobileline" placeholder="Introduce Line: (+00) 000-000-0000"><br>
+                                <div class="form-group">
+                                    <label for="start">Date</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    <input formControlName="date" type="date" id="start" name="trip-start" value="0000-00-00" min="1000-01-01" max="2020-12-31">
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="padding: 7px; margin-left: 100px; ">Consultant<i class="fa fa-search" aria-hidden="true" style="margin-left: 8px;"></i></button>
+                            </div>
+                        </form>
+
+                        <div class="dropdown-divider"></div><br>
+                        <div style="background: rgb(255, 255, 255);">
+                            <p>Nombre: {{name}} <br> Apellido: {{lastname}} <br> Cédula: {{identificationCard}} <br> Número de linea telefonica: {{line}} <br>
+                            </p>
+                        </div>
+                        <p>Facturas encontradas:</p>
+                        <table class="table table-bordered" style="background: rgb(255, 255, 255);">
+                            <thead>
+                                <tr>
+                                    <th>Número de Fatura</th>
+                                    <th>Fecha de Emisión</th>
+                                    <th>Valor de la Factura</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{id_fac}} </td>
+                                    <td>{{datebill}}</td>
+                                    <td>{{valuefac}}</td>
+                                    <td> <a class="nav-link" href="#">Eliminar Factura</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                        Failed to register.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>

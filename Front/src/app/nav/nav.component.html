@@ -1,0 +1,47 @@
+   <!-- NAVBAR  -->
+   <nav class="navbar navbar-expand-lg navbar-dark  shadow-sm " style="background-color: #3b4652;">
+    <a class="navbar-brand" href="#">CELLCOM</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" (click)="welcome()" *ngIf="userInSystem">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="login()" *ngIf="!userInSystem">Login</a>
+            </li>
+            <li class="nav-item dropdown" *ngIf="userInSystem">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Post Line Registration
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" *ngIf="userInSystem">
+                    <a class="dropdown-item" (click)="registerCustomer()" >Register Customer</a>
+                    <a class="dropdown-item" (click)="registerEquipment()">Register Mobile Equipment</a>
+                    <a class="dropdown-item" (click)="line()">Register Line</a>
+                </div>
+            </li>
+            <li class="nav-item" *ngIf="userInSystem">
+                <!-- Consultar Facturas -->
+                <a class="nav-link" (click)="consultantBill()"> Consulted Bill</a>
+            </li>
+            <li class="nav-item" *ngIf="!userInSystem">
+                <!-- Consultar Facturas -->
+                <a class="nav-link" (click)="registerConsultant()"> Register Consultant</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" *ngIf="userInSystem">
+            <div class="navbar-nav">
+                <a class="nav-link " href="#">
+                    Sign off
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+</nav>
+<!-- /NAVBAR  -->

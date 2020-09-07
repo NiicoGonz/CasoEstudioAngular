@@ -1,0 +1,36 @@
+<app-nav></app-nav>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="modal-dialog text-center">
+                <div class="col-sm-12 main-section">
+                    <div class="modal-content">
+                        <div class="col-12 user-img">
+                            <img [src]="img_circle" />
+                        </div>
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-12">
+                            <div class="form-group" id="user-group">
+                                <input formControlName="email" type="text" class="form-control" placeholder="Enter Email" name="username" />
+                            </div>
+                            <div class="form-group" id="contrasena-group">
+                                <input formControlName="password" type="password" class="form-control" placeholder="Enter Password" name="password" />
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Login </button>
+                        </form>
+                        <div class="col-12 forgot">
+                            <a href="#">Remember password?</a>
+                        </div>
+                        <div *ngIf="false" class="alert alert-danger" role="alert">
+                            Invalid username and password.
+                        </div>
+                        <div *ngIf="false" class="alert alert-success" role="alert">
+                            You have been logged out.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>

@@ -1,0 +1,48 @@
+<app-nav></app-nav>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="modal-content">
+                <div class="col-12 col-sm-12 col-md-8 mx-auto ">
+                    <div class=" mt-4 col-12 user-img">
+                        <img [src]="img_circle" th:src="@{/img/register-person.png}" />
+                    </div>
+                    <div class="border border-left-9   p-5 shadow-sm rounded-right" style="background: slategrey;">
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <h2 class="text-center mb-4">Registration Person </h2>
+                            <div class="dropdown-divider"></div>
+                            <div class="form-group">
+                                <label for="name">Names </label>
+                                <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter full names">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Lastname </label>
+                                <input formControlName="lastname" type="text" class="form-control" id="lastname" placeholder="Enter full lastname">
+                            </div>
+                            <div class="form-group">
+                                <label for="personid">Person ID </label>
+                                <input formControlName="identificationCard" type="text" class="form-control" id="personid" placeholder="0-000-000-000">
+                            </div>
+                            <div class="form-group">
+                                <label for="landline">Landline </label>
+                                <input formControlName="phone" type="text" class="form-control" id="Landline" placeholder="(+00) 000-000-00">
+                            </div>
+                            <div class="form-group">
+                                <label for="start">Date born</label>
+                                <input formControlName="dateBorn" type="date" id="start" name="trip-start" value="0000-00-00" min="1000-01-01" max="2020-12-31">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block mt-3" style="margin-left: 110px;">Registration</button>
+                        </form>
+                        <div *ngIf="notification" class="alert alert-danger" role="alert">
+                            problemas al registrar, intente de nuevo
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>

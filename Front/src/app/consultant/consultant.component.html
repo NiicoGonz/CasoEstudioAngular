@@ -1,0 +1,67 @@
+<app-nav></app-nav>
+
+<body>
+    <div class=" container">
+        <div class="row">
+            <div class="modal-content">
+                <div class="col-12 col-sm-12 col-md-8 mx-auto ">
+                    <div class="mt-4 col-12 user-img">
+                        <img [src]="img_circle" th:src="@{/img/register-user.jpg}" />
+                    </div>
+                    <div class="border border-left-9   p-5 shadow-sm rounded-right" style="background: slategrey;">
+
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <h2 class="text-center mb-4">Registration Form </h2>
+                            <div class="dropdown-divider"></div>
+                            <div class="form-group">
+                                <label for="id">Id </label>
+                                <input formControlName="id" type="text" class="form-control" id="id" placeholder="Enter your Id">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input formControlName="email" type="email" class="form-control" id="email" placeholder="name@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Names </label>
+                                <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter full names">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Lastname </label>
+                                <input formControlName="lastname" type="text" class="form-control" id="lastname" placeholder="Enter full lastname">
+                            </div>
+                            <div class="form-group">
+                                <label for="cellphone">Phone number </label>
+                                <input formControlName="phonenumber" type="text" class="form-control" id="cellphone" placeholder="(+00) 000-000-0000">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input formControlName="address" type="text" class="form-control" id="address" placeholder="Enter your address">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect2">Position in the company</label>
+                                <select formControlName="rol" multiple class="form-control" id="exampleFormControlSelect2">
+                                <option>Asesor Comercial</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass">Password</label>
+                                <input formControlName="password" type="password" id="pass" class="form-control" placeholder="Enter Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="pass2">Repeat Password</label>
+                                <input type="password" id="pass2" class="form-control" placeholder="Repeat Password">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block mt-3" style="margin-left: 110px;">Registration</button>
+                        </form>
+                    </div>
+                    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                        Failed to register.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>
